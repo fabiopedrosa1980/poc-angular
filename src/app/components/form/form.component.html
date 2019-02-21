@@ -1,22 +1,86 @@
 <div class="container">
-  <form>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Email address</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  <div class="col-md-12 txtBox">
+    <br>
+    <h4>Cadastro de Clientes</h4>
+    <br>
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="codigo">Nome</label>
+          <input type="text" class="form-control" maxlength="80">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="descricao">Email</label>
+          <input type="text" class="form-control" maxlength="40">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="descricao">Telefone</label>
+          <input type="text" class="form-control" maxlength="40">
+        </div>
+      </div>
+    </form>
+    <br>
+    <div class="form-row">
+      <button type="button" class="btn btn-primary">Incluir</button>&nbsp;
+      <button type="button" class="btn btn-danger">Limpar</button>
     </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Example select</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+    <br>
+    <div class="form-row">
+      <table id="gridformulario" class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th width="140">Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fabio Pedrosa</td>
+            <td>bito.pedrosa@gmail.com</td>
+            <td>11-964401900</td>
+            <td>
+              <div class="btn-group btn-group-sm">
+                <a rel="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-fw fa-pencil-square-o"></i></a>
+                <button data-target="#exampleModal" type="button" rel="tooltip" title="Apagar"
+                  class="btn btn-default btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link"  href="#" routerLink="form">Anterior</a></li>
+          <li class="page-item"><a class="page-link"  href="#" routerLink="form">1</a></li>
+          <li class="page-item"><a class="page-link"  href="#" routerLink="form">2</a></li>
+          <li class="page-item"><a class="page-link"  href="#" routerLink="form">3</a></li>
+          <li class="page-item"><a class="page-link"  href="#" routerLink="form">Proxima</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">Example textarea</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
     </div>
-  </form>
+  </div>
+
 </div>
