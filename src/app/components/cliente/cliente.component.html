@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="col-md-12 txtBox">
+    <br>
+      <h4>Cadastro de Clientes</h4>
+
+      <form #f="ngForm">
+        <div [ngClass]="cssClass" role="alert" *ngIf="message">
+           {{message}}
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="codigo">Nome</label>
+            <input type="text" class="form-control uppercase" [(ngModel)]="cliente.nome" name="nome" maxlength="80">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="descricao">Email</label>
+            <input type="text" class="form-control" [(ngModel)]="cliente.email" name="email"  maxlength="60">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="codigo">Telefone</label>
+            <input type="text" class="form-control uppercase" [(ngModel)]="cliente.telefone" name="telefone" maxlength="15">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="descricao">Sexo</label>
+            <select class="form-control" [(ngModel)]="cliente.sexo" name="sexo">
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+            </select>
+          </div>
+        </div>
+      </form>  
+      <br>
+      <div class="form-row">
+        <button type="button" rel="tooltip" *ngIf="!id" class="btn btn-primary" (click)="saveClient(f)">Incluir</button>
+        <button type="button" rel="tooltip" *ngIf="id" class="btn btn-success" (click)="updateClient(f)">Alterar</button>&nbsp;
+        <button type="button" (click)="cancel()" class="btn btn-secondary">Cancelar</button>
+     </div> 
+     <br>
+    <div class="form-row">
+        <table id="gridCliente" class="table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Telefone</th>
+              <th>Sexo</th>
+              <th width="140">Ação</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="pagination && pagination.totalElements == 0">
+             <tr>
+               <td colspan="5">Nenhum cliente encontrado</td>
+             </tr> 
+          </tbody>
+          <tbody *ngIf="pagination">
+            <tr *ngFor="let cliente of pagination.content">
+              <td>{{ cliente.nome }}</td>
+              <td>{{ cliente.email }}</td>
+              <td>{{ cliente.telefone }}</td>
+              <td>{{ cliente.sexo == "M" ? "Masculino" : "Feminino" }}</td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <a (click)="loadClient(cliente.id)" rel="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-fw fa-pencil-square-o"></i></a>
+                  <button (click)="deleteClient(cliente.id)" type="button" rel="tooltip" title="Apagar?" class="btn btn-default btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination *ngIf="pagination && pagination.totalPages > 1" 
+            [boundaryLinks]="true" 
+            [totalItems]="pagination.totalElements" 
+            [(ngModel)]="pagination.number"
+            class="pagination-sm" 
+            previousText="&lsaquo;" 
+            nextText="&rsaquo;" 
+            firstText="&laquo;" 
+            lastText="&raquo;" 
+            [itemsPerPage]="pagination.size"
+            (pageChanged)="pageChanged($event)">
+        </pagination>
+    </div>
+  </div>
+</div>
