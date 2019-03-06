@@ -3,6 +3,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const clienteRouting: ModuleWithProviders = RouterModule.forChild([
     {
@@ -19,7 +20,8 @@ const clienteRouting: ModuleWithProviders = RouterModule.forChild([
     imports: [
       CommonModule,
       SharedModule,    
-      clienteRouting
+      clienteRouting,
+      ReactiveFormsModule
     ],
     declarations: [ClienteComponent]    
   })

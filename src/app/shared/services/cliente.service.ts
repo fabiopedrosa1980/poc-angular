@@ -5,7 +5,7 @@ import { ResourceService } from './base/resource.service';
 
 @Injectable()
 export class ClienteService extends ResourceService<Cliente> {
-
+  
   getPath(): string {
     return '/client';
   }

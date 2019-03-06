@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -8,12 +10,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  isLoggedIn$: Observable<boolean>;
+
   constructor(
-    private route: ActivatedRoute
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
-    console.info(this.route.url);
+    this.isLoggedIn$ = this.authService.isLoggedIn;
   }
+
+  logout(){
+    this.authService.logout();
+  }
+
+  
 
 }
