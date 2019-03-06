@@ -10,9 +10,9 @@ import { ClienteModule } from './components/cliente/cliente.module';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
 import { AlertModule } from 'ngx-bootstrap/alert';
-import { AuthService } from './components/auth/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthGuard } from './components/auth/auth.guard';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
 
 
 @NgModule({

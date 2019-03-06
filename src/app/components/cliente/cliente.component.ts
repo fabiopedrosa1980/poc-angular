@@ -4,9 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Cliente } from 'src/app/shared/models/cliente.model';
 import { Pagination } from 'src/app/shared/models/base/pagination.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ResourceLoader } from '@angular/compiler';
-import { AuthService } from '../auth/auth.service';
-import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-form',
@@ -33,8 +31,7 @@ export class ClienteComponent implements OnInit {
   
   constructor(
     private clienteService: ClienteService,
-    private formBuilder: FormBuilder,
-    private authService: AuthService
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -73,7 +70,11 @@ export class ClienteComponent implements OnInit {
   loadClient(id: number){
     this.message = null;
     this.id = id;
-    this.clienteService.load(id).subscribe(cliente =>  this.updateValues(cliente));
+    this.clienteService
+      .load(id)
+      .subscribe(
+        cliente =>  this.updateValues(cliente)
+      );
   }
 
   updateValues(cliente: Cliente) {
