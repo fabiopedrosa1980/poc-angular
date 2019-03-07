@@ -4,15 +4,13 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from 'src/app/auth/auth.guard';
 
 const clienteRouting: ModuleWithProviders = RouterModule.forChild([
     {
       path: 'cliente',
-      component: ClienteComponent
-    },
-    {
-      path: 'cliente/edit/:id',
       component: ClienteComponent,
+      canActivate: [AuthGuard]
     }
   ]);
   

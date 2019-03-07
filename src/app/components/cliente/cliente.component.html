@@ -27,7 +27,7 @@
           </div>
           <div class="form-group col-md-4">
             <label for="codigo">Telefone</label>
-            <input type="text" formControlName="telephone" class="form-control"  [ngClass]="{ 'is-invalid': submitted && telephone.invalid }"/>
+            <input type="text" formControlName="telephone" class="form-control" mask='(000) 000-0000'  [ngClass]="{ 'is-invalid': submitted && telephone.invalid }"/>
             <div *ngIf="submitted && telephone.invalid" class="invalid-feedback">
                 <div *ngIf="telephone.invalid">Telefone obrigatorio</div>
             </div>  

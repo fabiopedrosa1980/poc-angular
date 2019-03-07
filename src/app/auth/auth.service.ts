@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { User } from 'src/app/shared/models/user';
+import { User } from 'src/app/shared/models/user.model';
 
 @Injectable()
 export class AuthService {

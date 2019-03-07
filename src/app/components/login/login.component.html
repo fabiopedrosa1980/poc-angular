@@ -22,7 +22,7 @@
                                   <label>Senha</label>
                                   <input type="password" formControlName="password" class="form-control"  [ngClass]="{ 'is-invalid': submitted && password.invalid }"/>
                                   <div *ngIf="submitted && password.invalid" class="invalid-feedback">
-                                    <div *ngIf="password.errors.required">Senha obrigataria</div>
+                                    <div *ngIf="password.errors.required">Senha obrigatoria</div>
                                     <div *ngIf="password.errors.minlength">Senha precisa ter ao menos 3 carcacters</div>
                                   </div>
                               </div>
